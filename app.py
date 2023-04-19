@@ -143,6 +143,10 @@ def check_token_in_headers(session: Session, advertisement: Advertisement):
 
 '======== Вьюхи ========================================='
 
+@app.route('/', methods=['GET'])
+def test():
+    return jsonify({'hello': 'test1'})
+
 @app.route('/login/', methods=['POST'])
 def login():
 
@@ -268,4 +272,4 @@ app.add_url_rule('/advertisement/<int:adv_id>/', view_func=AdvertisementView.as_
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
