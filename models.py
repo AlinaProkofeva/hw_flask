@@ -9,8 +9,15 @@ from load_dotenv import load_dotenv
 
 load_dotenv()
 
-engine = create_engine(
-    f"{os.getenv('DB_ENGINE')}://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}")
+POSTGRES_USER=os.getenv('POSTGRES_USER')
+POSTGRES_PASSWORD=os.getenv('POSTGRES_PASSWORD')
+POSTGRES_DB=os.getenv('POSTGRES_DB')
+DB_ENGINE=os.getenv('DB_ENGINE')
+DB_PORT=os.getenv('DB_PORT')
+DB_HOST=os.getenv('DB_HOST')
+
+
+engine = create_engine(f'{DB_ENGINE}://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{DB_HOST}:{DB_PORT}/{POSTGRES_DB}')
 Base = declarative_base(bind=engine)
 
 
