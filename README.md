@@ -2,7 +2,7 @@
 
 # Quickstart
 
-    git clone ...
+    git clone https://github.com/AlinaProkofeva/hw_flask.git
     cp .env.template .env
 
 В .env указать переменные окружения
